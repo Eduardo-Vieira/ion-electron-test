@@ -1,10 +1,18 @@
 {
   "name": "ion-electron-test",
   "version": "0.0.1",
-  "author": "Eduardo Vieira",
+  "author": {
+    "name": "Eduardo Vieira",
+    "email": "gceduvieira@gmail.com"
+  },
+  "description": "Um projeto ionic com electron",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
+    "dev": "nf start",
+    "start": "ionic-app-scripts serve",
+    "electron dist": "electron .",
+    "ebuild": "npm run build && node_modules/.bin/build",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
@@ -37,5 +45,18 @@
     "foreman": "^2.0.0",
     "typescript": "2.4.2"
   },
-  "description": "Um projeto ionic com electron"
+  "main": "electron/electron.js",
+  "config": {
+    "ionic_bundler": "webpack",
+    "ionic_webpack": "./config/webpack.config.js"
+  },
+  "build": {
+    "appId": "com.lohanitech.ionic-electron-test",
+    "electronVersion": "1.6.2",
+    "asar": false,
+    "files": [
+      "www/**/*",
+      "electron/*"
+    ]
+  }
 }
